@@ -25,10 +25,25 @@ flag dev
   default:            False
 
 library
-  build-depends:      base             >= 4.10 && < 5.0
-                    , binary           >= 0.5  && < 0.9
-                    , bytestring       >= 0.2  && < 0.11
+  build-depends:      base             >= 4.10  && < 5.0
+                    , binary           >= 0.8.5 && < 0.10
+                    , bytestring       >= 0.2   && < 0.11
+                    , constraints
   exposed-modules:    Data.Imprint
+  if flag(dev)
+    ghc-options:      -Wall -Werror
+  else
+    ghc-options:      -O2 -Wall
+  default-language:   Haskell2010
+
+test-suite tests
+  main-is:            Main.hs
+  hs-source-dirs:     tests
+  type:               exitcode-stdio-1.0
+  build-depends:      base             >= 4.10 && < 5.0
+                    , constraints
+                    , imprint
+                    , binary
   if flag(dev)
     ghc-options:      -Wall -Werror
   else
