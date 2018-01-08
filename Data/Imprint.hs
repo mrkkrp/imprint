@@ -199,7 +199,7 @@ static = StaticImprint
 -- > closureImprint :: Imprint ('Z ':~> Int) (String -> String)
 -- > closureImprint = funImprint <:> intImprint
 
-(<:>) :: Imprint as (a -> b) -> Imprint 'Z a -> Imprint (as ':~> a) b
+(<:>) :: Imprint bs (b -> a) -> Imprint 'Z b -> Imprint (bs ':~> b) a
 (<:>) = AppImprint
 infixl 4 <:>
 
