@@ -161,7 +161,9 @@ instance Typeable a => Binary (Imprint 'Z a) where
         static <$> getStatic
       _ -> fail "Data.Imprint: decoding failure, invalid header"
 
-instance (Binary (Imprint bs (b -> a)), Typeable a, Typeable b) => Binary (Imprint (bs ':~> b) a) where
+instance ( Binary (Imprint bs (b -> a))
+         , Typeable a
+         , Typeable b ) => Binary (Imprint (bs ':~> b) a) where
   put (AppImprint ab a) = do
     putWord8 2
     put ab
