@@ -7,8 +7,14 @@
 [![Build Status](https://travis-ci.org/mrkkrp/imprint.svg?branch=master)](https://travis-ci.org/mrkkrp/imprint)
 [![Coverage Status](https://coveralls.io/repos/mrkkrp/imprint/badge.svg?branch=master&service=github)](https://coveralls.io/github/mrkkrp/imprint?branch=master)
 
-Fooling around with serialization of arbitrary Haskell expressions. This is
-not meant for serious use (yet?).
+Serialization of arbitrary Haskell expressions. Currently supports
+serialization of
+
+* Values with a `Binary` instance
+* Monomorphic functions
+* Closures built upon the two previous components
+
+See the Haddock for a proper introduction.
 
 ## Contribution
 
