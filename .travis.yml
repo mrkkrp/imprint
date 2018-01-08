@@ -33,12 +33,11 @@ script:
  - cabal sdist
  - cabal haddock | grep "100%" | wc -l | grep "1"
 
-# after_script:
-#  - export PATH=~/.cabal/bin:$PATH
-#  - hpc-coveralls --coverage-mode=StrictlyFullLines
-#                  --exclude-dir=tests
-#                  --exclude-dir=bench
-#                  tests
+after_script:
+ - export PATH=~/.cabal/bin:$PATH
+ - hpc-coveralls --coverage-mode=StrictlyFullLines
+                 --exclude-dir=tests
+                 tests
 
 notifications:
   email: false
