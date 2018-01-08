@@ -77,7 +77,7 @@
 -- put the deserializing code into the @ByteString -> Process ()@ function.
 --
 -- Finally, we give the guarantee that if you have a value of the type
--- @'Imprint' as a@, then you can have the @a@ value back, see 'restore':
+-- @'Imprint' bs a@, then you can have the @a@ value back, see 'restore':
 --
 -- > restore :: Imprint bs a -> a
 
