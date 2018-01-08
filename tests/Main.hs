@@ -8,6 +8,8 @@ import Data.Binary
 import Data.Binary.Get
 import Data.Binary.Put
 import Data.Imprint (Imprint, Col (..), Dict (..), (<:>))
+import Data.Typeable (Typeable)
+import GHC.StaticPtr
 import qualified Data.Imprint as I
 
 main :: IO ()
@@ -24,7 +26,7 @@ foo3 = I.static (static f)
   where
     f n str = str ++ show n
 
-foo4 :: Imprint ('Z ':+ Int ':+ String) String
+foo4 :: Imprint ('Z ':~> Int ':~> String) String
 foo4 = foo3 <:> foo1 <:> foo2
 
 -- λ> runPut (put foo4)
