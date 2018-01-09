@@ -109,7 +109,6 @@ import Data.Binary
 import Data.Constraint (Dict (..), withDict)
 import Data.Proxy
 import Data.Typeable (Typeable)
-import GHC.Fingerprint
 import GHC.StaticPtr
 import System.IO.Unsafe (unsafePerformIO)
 import Type.Reflection
@@ -221,14 +220,11 @@ restore = \case
 -- Helpers
 
 putStatic :: StaticPtr a -> Put
-putStatic ptr = do
-  let (Fingerprint hi lo) = staticKey ptr
-  put hi
-  put lo
+putStatic = put . staticKey
 
 getStatic :: Get (StaticPtr a)
 getStatic = do
-  key <- Fingerprint <$> get <*> get
+  key <- get
   case unsaferLookupStaticPtr key of
     Nothing -> fail "Data.Imprint: lookup of static pointer failed"
     Just ptr -> return ptr
