@@ -5,7 +5,6 @@
 [![Stackage Nightly](http://stackage.org/package/imprint/badge/nightly)](http://stackage.org/nightly/package/imprint)
 [![Stackage LTS](http://stackage.org/package/imprint/badge/lts)](http://stackage.org/lts/package/imprint)
 [![Build Status](https://travis-ci.org/mrkkrp/imprint.svg?branch=master)](https://travis-ci.org/mrkkrp/imprint)
-[![Coverage Status](https://coveralls.io/repos/mrkkrp/imprint/badge.svg?branch=master&service=github)](https://coveralls.io/github/mrkkrp/imprint?branch=master)
 
 Serialization of arbitrary Haskell expressions. Currently supports
 serialization of
